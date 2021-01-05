@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {Route, Redirect} from 'react-router-dom'
+import {getUser} from '../service/selectors'
 
 const PrivateRoute = ({component: Component, user, ...rest }) => {
 
@@ -25,7 +26,7 @@ const PrivateRoute = ({component: Component, user, ...rest }) => {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.authReducer.user
+        user: getUser((state))
     }
 }
 
